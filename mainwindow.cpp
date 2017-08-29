@@ -12,9 +12,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connectToDb();
-    QSqlQuery("SET NAMES 'cp1251'").exec();
+    QSqlQuery("SET NAMES 'UTF8'").exec();
     model = new QSqlTableModel(this);
-    model->setTable("main");
+    model->setTable("product");
     model->select();
 
     ui->tableView->setModel(model);
@@ -39,13 +39,13 @@ void MainWindow::connectToDb()
 
 void MainWindow::on_pbnExecQuery_clicked()
 {
-    QSqlQuery query("LOAD DATA INFILE '" + ui->lineEdit->text() + "' INTO TABLE `main`");
+    QSqlQuery query("LOAD DATA INFILE '" + ui->lineEdit->text() + "' INTO TABLE `product`");
     model->select();
 }
 
 void MainWindow::on_pbnTruncateTable_clicked()
 {
-    QSqlQuery("TRUNCATE TABLE `main`").exec();
+    QSqlQuery("TRUNCATE TABLE `product`").exec();
     model->select();
 }
 
