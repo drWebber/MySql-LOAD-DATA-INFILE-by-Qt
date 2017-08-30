@@ -25,8 +25,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    dataimport.cpp \
+    tables/products.cpp \
+    tables/table.cpp \
+    tables/products.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    dataimport.h \
+    tables/products.h \
+    tables/table.h \
+    tables/products.h
 
 FORMS    += mainwindow.ui
