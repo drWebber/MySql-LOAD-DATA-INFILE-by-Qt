@@ -5,8 +5,7 @@
 #include <QtSql/qsqldatabase.h>
 #include <QtSql/qsqlrelationaltablemodel.h>
 #include <QtSql/qsqldriver.h>
-#include <QtSql/qsqltablemodel.h>
-#include <table.h>
+#include "tables/products.h"
 
 namespace Ui {
 class MainWindow;
@@ -32,10 +31,10 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QSqlDatabase db;
-    QSqlTableModel *productsModel;
     QSqlRelationalTableModel *ordersModel;
     int currentTable;
-    QList<Table> tables;
+    QList<Table*> tables;
+    Products *products;
 };
 
 #endif // MAINWINDOW_H

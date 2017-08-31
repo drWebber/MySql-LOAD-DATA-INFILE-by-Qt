@@ -30,18 +30,16 @@ MainWindow::MainWindow(QWidget *parent) :
     QSqlQuery("SET NAMES 'UTF8'").exec();
     QSqlQuery("SET foreign_key_checks = 0").exec();
 
-    ui->lbQueryMsg->setVisible(false);
+    products = new Products(ui->tbvProducts);
+    tables.append(products);
 
-    productsModel = new QSqlTableModel(this);
-    productsModel->setTable("products");
-    productsModel->select();
+    ui->lbQueryMsg->setVisible(false);
 
     ordersModel = new QSqlRelationalTableModel(this);
     ordersModel->setTable("orders");
     ordersModel->setRelation(0, QSqlRelation("products", "id", "article"));
     ordersModel->select();
 
-    ui->tbvProducts->setModel(productsModel);
     ui->tbvOrders->setModel(ordersModel);
 }
 
@@ -63,7 +61,7 @@ void MainWindow::selectCurrentTable()
 {
     switch (ui->tabWidget->currentIndex()) {
     case Tab::PRODUCTS:
-        productsModel->select();
+//        productsModel->select();
         break;
     case Tab::ORDERS:
         ordersModel->select();
@@ -72,24 +70,10 @@ void MainWindow::selectCurrentTable()
 
 void MainWindow::on_pbnExecQuery_clicked()
 {
-    QString statement;
-    switch (ui->tabWidget->currentIndex()) {
-    case Tab::PRODUCTS:
-        statement = "LOAD DATA INFILE '" + ui->lineEdit->text()
-                + "' INTO TABLE `products`";
-        break;
-    case Tab::ORDERS:
-        statement = "LOAD DATA INFILE '" + ui->lineEdit->text()
-                + "' IGNORE INTO TABLE `orders`(@id, `date`, `count`)"
-                  "SET id = (SELECT `id` FROM `products` WHERE article = @id)";
-    }
-
-    DataImport *di = new DataImport(statement);
-    QObject::connect(di, SIGNAL(queryExecuted(QString)),
-            this, SLOT(on_queryExecuted(QString)));
-    di->start();
-
-    selectCurrentTable();
+    qDebug() << "on_pbnExecQuery_clicked" << currentTable;
+    tables.at(currentTable)->setImportFilePath(ui->lineEdit->text());
+    tables.at(currentTable)->start();
+    tables.at(currentTable)->select();
 }
 
 void MainWindow::on_pbnTruncateTable_clicked()

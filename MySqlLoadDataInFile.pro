@@ -29,12 +29,12 @@ SOURCES += main.cpp\
     dataimport.cpp \
     tables/products.cpp \
     tables/table.cpp \
-    tables/products.cpp
+    tables/orders.cpp
 
 HEADERS  += mainwindow.h \
     dataimport.h \
     tables/products.h \
     tables/table.h \
-    tables/products.h
+    tables/orders.h
 
 FORMS    += mainwindow.ui
