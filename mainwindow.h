@@ -5,7 +5,8 @@
 #include <QtSql/qsqldatabase.h>
 #include <QtSql/qsqlrelationaltablemodel.h>
 #include <QtSql/qsqldriver.h>
-#include "tables/products.h"
+#include "tables/sqltable.h"
+#include "tables/sqlrelatedtable.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,23 +19,22 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    enum Tab {PRODUCTS, ORDERS};
-    QString getCurrentTable();
-    void selectCurrentTable();
 private slots:
     void on_pbnExecQuery_clicked();
     void on_pbnTruncateTable_clicked();
     void on_pbnChoosePath_clicked();
     void on_tabWidget_currentChanged(int index);
-    void on_queryExecuted(QString msg);
-
+    void on_queryExecuted();
 private:
     Ui::MainWindow *ui;
     QSqlDatabase db;
     QSqlRelationalTableModel *ordersModel;
-    int currentTable;
-    QList<Table*> tables;
-    Products *products;
+    SqlAbstractTable *currentTable;
+    QList<SqlAbstractTable*> tables;
+    SqlTable *products;
+    SqlRelatedTable *orders;
+    SqlTable *chart;
+    void showStatus();
 };
 
 #endif // MAINWINDOW_H

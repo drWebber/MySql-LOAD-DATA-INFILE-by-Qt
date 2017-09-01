@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Авг 30 2017 г., 13:05
+-- Время создания: Сен 01 2017 г., 09:59
 -- Версия сервера: 5.7.15
 -- Версия PHP: 7.0.10
 
@@ -19,38 +19,84 @@ SET time_zone = "+00:00";
 --
 -- База данных: `bigdata`
 --
-
 CREATE DATABASE IF NOT EXISTS `bigdata`;
 USE `bigdata`;
 
 -- --------------------------------------------------------
 
-CREATE TABLE `products` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `article` varchar(30) NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `count` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+--
+-- Структура таблицы `chartlist`
+--
+
+CREATE TABLE `chartlist` (
+  `Title` varchar(255) NOT NULL,
+  `Scale` int(11) NOT NULL DEFAULT '0',
+  `Edition Date` date DEFAULT NULL,
+  `Folio` varchar(20) DEFAULT NULL,
+  `Disk` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders`
+--
 
 CREATE TABLE `orders` (
   `id` int(10) UNSIGNED NOT NULL,
   `date` date NOT NULL,
-  `count` int(11) NOT NULL,
-  INDEX FK_products_orders_id (id),
-  CONSTRAINT FK_products_orders_id FOREIGN KEY (id) REFERENCES products (id)
+  `count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `article` varchar(30) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `count` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- Индексы сохранённых таблиц
+--
+
+--
 -- Индексы таблицы `orders`
 --
 ALTER TABLE `orders`
+  ADD KEY `FK_products_orders_id` (`id`),
   ADD KEY `id` (`id`);
-  
+
+--
+-- Индексы таблицы `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `products`
+--
 ALTER TABLE `products`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `FK_products_orders_id` FOREIGN KEY (`id`) REFERENCES `products` (`id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
