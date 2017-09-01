@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <QtSql/qsqldatabase.h>
-#include <QtSql/qsqlrelationaltablemodel.h>
 #include <QtSql/qsqldriver.h>
 #include "tables/sqltable.h"
 #include "tables/sqlrelatedtable.h"

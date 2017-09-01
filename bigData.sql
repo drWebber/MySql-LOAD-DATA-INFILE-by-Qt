@@ -10,6 +10,8 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+CREATE DATABASE IF NOT EXISTS `bigdata`;
+USE `bigdata`;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -59,7 +61,7 @@ CREATE TABLE `products` (
   `article` varchar(30) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `count` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Индексы сохранённых таблиц
@@ -87,16 +89,6 @@ ALTER TABLE `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- Ограничения внешнего ключа сохраненных таблиц
---
-
---
--- Ограничения внешнего ключа таблицы `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `FK_products_orders_id` FOREIGN KEY (`id`) REFERENCES `products` (`id`);
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,3 +1,5 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
 #include <QtSql/QSqlDatabase>
 #include <QtSql/qsqlquery.h>
 #include <QtSql/qsqlerror.h>
@@ -70,7 +72,7 @@ void MainWindow::on_pbnTruncateTable_clicked()
 }
 
 void MainWindow::on_pbnChoosePath_clicked()
-{    
+{
     QString path = QFileDialog::getOpenFileName(this, tr("Open file"),
                                               "/home", tr("Text (*.txt)"));
     if (!path.isEmpty()) {
