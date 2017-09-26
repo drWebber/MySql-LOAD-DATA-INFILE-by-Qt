@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Test1</class>
+ <widget class="QDialog" name="Test1">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>678</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pbnTest1">
+       <property name="text">
+        <string>Тест 1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pbnTest2">
+       <property name="text">
+        <string>Тест 2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Тест производительности INSERT'а на 7 800 записей:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Имеем 2 таблицы:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;pdoucts: store:&lt;/p&gt;&lt;p&gt;pid art pid count&lt;/p&gt;&lt;p&gt;1 a1 1 100&lt;/p&gt;&lt;p&gt;2 a2 2 50&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Тест 1. INSERT условно в цикле (аналогично INSERT через LOAD DATA INFILE с подзапросами на каждой строке):&lt;/span&gt;&lt;/p&gt;&lt;p&gt;FOR(;;;)&lt;/p&gt;&lt;p&gt;INSERT INTO `table` VALUES(SELECT `id` FROM `products` WHERE `art` = 'a1', :count); &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Тест 2. Вынимаем все `id` через SELECT `pid` FROM `products` WHERE `art` IN('a1', 'a2', ... , 'an');&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Далее деламем INSERT INTO `store` VALUES(:pid, :count); &lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

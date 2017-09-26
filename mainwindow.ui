@@ -117,6 +117,28 @@
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>757</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMySql">
+    <property name="title">
+     <string>MySql test</string>
+    </property>
+    <addaction name="aTest1"/>
+   </widget>
+   <addaction name="menuMySql"/>
+  </widget>
+  <action name="aTest1">
+   <property name="text">
+    <string>INSERT через один SELECT и через кучу SELECTов</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

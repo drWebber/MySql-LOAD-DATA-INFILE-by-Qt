@@ -6,6 +6,7 @@
 #include <QTime>
 #include <qdebug.h>
 #include <qfiledialog.h>
+#include "tests/test1.h"
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -49,6 +50,8 @@ MainWindow::MainWindow(QWidget *parent) :
     currentTable = tables.at(ui->tabWidget->currentIndex());
 
     ui->lbQueryMsg->setVisible(false);
+
+    connect(ui->aTest1, SIGNAL(triggered(bool)), this, SLOT(on_test1()));
 }
 
 MainWindow::~MainWindow()
@@ -95,6 +98,12 @@ void MainWindow::on_queryExecuted()
 {
     currentTable->select();
     showStatus();
+}
+
+void MainWindow::on_test1()
+{
+    Test1 *t1 = new Test1(this);
+    t1->exec();
 }
 
 void MainWindow::showStatus()

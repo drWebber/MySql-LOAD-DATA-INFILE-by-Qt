@@ -24,6 +24,7 @@ private slots:
     void on_pbnChoosePath_clicked();
     void on_tabWidget_currentChanged(int index);
     void on_queryExecuted();
+    void on_test1();
 private:
     Ui::MainWindow *ui;
     QSqlDatabase db;

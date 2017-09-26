@@ -28,11 +28,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     tables/sqlrelatedtable.cpp \
     tables/sqltable.cpp \
-    tables/sqlabstracttable.cpp
+    tables/sqlabstracttable.cpp \
+    tests/test1.cpp
 
 HEADERS  += mainwindow.h \
     tables/sqlrelatedtable.h \
     tables/sqltable.h \
-    tables/sqlabstracttable.h
+    tables/sqlabstracttable.h \
+    tests/test1.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    test1.ui
