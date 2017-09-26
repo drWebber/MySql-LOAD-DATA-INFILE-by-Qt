@@ -9,7 +9,7 @@ QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = MySqlTest
+TARGET = MySqlLoadDataInFile
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -26,18 +26,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-        dataimport.cpp \
     tables/sqlrelatedtable.cpp \
     tables/sqltable.cpp \
     tables/sqlabstracttable.cpp \
     tests/test1.cpp
 
-HEADERS  += mainwindow.h\
-    dataimport.h \
+HEADERS  += mainwindow.h \
     tables/sqlrelatedtable.h \
     tables/sqltable.h \
+<<<<<<< HEAD:MySqlTest.pro
     tables/sqlabstracttable.h \
     tests/test1.h
+=======
+    tables/sqlabstracttable.h
+>>>>>>> 98c392dd3398f9fa548b9a1c9333de074525f511:MySqlLoadDataInFile.pro
 
 FORMS    += mainwindow.ui \
     test1.ui

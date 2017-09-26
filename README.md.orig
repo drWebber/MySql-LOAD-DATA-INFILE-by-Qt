@@ -1,0 +1,11 @@
+<<<<<<< HEAD
+# MySqlLoadDataInFile
+An example of using MySql operator LOAD DATA INFILE for data import from a text file in Qt Creator.
+Each operation of import are executed in it's own thread.
+=======
+# MySql-LOAD-DATA-INFILE-by-Qt
+An example of using MySql operator LOAD DATA INFILE for data import from a text file in Qt Creator.
+Each operation of import are executed in it's own thread.
+
+Тест производительности MySql.
+>>>>>>> 98c392dd3398f9fa548b9a1c9333de074525f511

@@ -1,0 +1,94 @@
+<<<<<<< HEAD
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+=======
+-- phpMyAdmin SQL Dump
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
+--
+-- Хост: 127.0.0.1
+-- Время создания: Сен 01 2017 г., 09:59
+-- Версия сервера: 5.7.15
+-- Версия PHP: 7.0.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+CREATE DATABASE IF NOT EXISTS `bigdata`;
+USE `bigdata`;
+
+>>>>>>> 98c392dd3398f9fa548b9a1c9333de074525f511
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+CREATE DATABASE IF NOT EXISTS `bigdata`;
+USE `bigdata`;
+
+CREATE TABLE `chartlist` (
+  `Title` varchar(255) NOT NULL,
+  `Scale` int(11) NOT NULL DEFAULT '0',
+  `Edition Date` date DEFAULT NULL,
+  `Folio` varchar(20) DEFAULT NULL,
+  `Disk` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `orders` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `date` date NOT NULL,
+  `count` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+<<<<<<< HEAD
+=======
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `products`
+--
+
+>>>>>>> 98c392dd3398f9fa548b9a1c9333de074525f511
+CREATE TABLE `products` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `article` varchar(30) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+<<<<<<< HEAD
+  `count` int(11) DEFAULT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+CREATE TABLE `store` (
+  `id` int(11) NOT NULL,
+=======
+>>>>>>> 98c392dd3398f9fa548b9a1c9333de074525f511
+  `count` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `orders`
+  ADD KEY `FK_products_orders_id` (`id`),
+  ADD KEY `id` (`id`);
+
+ALTER TABLE `store`
+  ADD PRIMARY KEY (`id`);
+
+<<<<<<< HEAD
+ALTER TABLE `orders`
+  ADD CONSTRAINT `FK_products_orders_id` FOREIGN KEY (`id`) REFERENCES `products` (`id`);
+
+=======
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> 98c392dd3398f9fa548b9a1c9333de074525f511
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
